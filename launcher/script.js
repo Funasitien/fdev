@@ -51,27 +51,27 @@ function detectOS() {
 
 function redirectToPage() {
   var { OSName, OSVersion, OSArchitecture } = detectOS();
-  var redirectUrl;
+  var redirectUrl = "#";
 
   if (OSName === "Windows") {
     if (OSVersion === "10" && OSArchitecture === "64-bit") {
-      redirectUrl = "windows10-64bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "10" && OSArchitecture === "32-bit") {
-      redirectUrl = "windows10-32bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "8.1" && OSArchitecture === "64-bit") {
-      redirectUrl = "windows8.1-64bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "8.1" && OSArchitecture === "32-bit") {
-      redirectUrl = "windows8.1-32bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "8" && OSArchitecture === "64-bit") {
-      redirectUrl = "windows8-64bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "8" && OSArchitecture === "32-bit") {
-      redirectUrl = "windows8-32bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "7" && OSArchitecture === "64-bit") {
-      redirectUrl = "windows7-64bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "7" && OSArchitecture === "32-bit") {
-      redirectUrl = "windows7-32bit.html";
+      redirectUrl = "#";
     } else if (OSVersion === "XP") {
-      redirectUrl = "windowsxp.html";
+      redirectUrl = "#";
     } else {
       redirectUrl = "#";
     }
@@ -89,7 +89,10 @@ function redirectToPage() {
   document.getElementById("os-name").textContent = `Operating System: ${OSName}`;
   document.getElementById("os-version").textContent = `Version: ${OSVersion} (${OSArchitecture})`;
 
-  window.location.href = redirectUrl;
+  // Wait 3 seconds before redirecting
+  setTimeout(function() {
+    window.location.href = redirectUrl;
+  }, 3000);
 }
 
 // Detect OS and redirect
